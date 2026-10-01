@@ -23,6 +23,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -38,7 +39,7 @@ fun HomeScreen() {
         bottomBar = { NavigationBarUI() }
     ) { innerpadding ->
         var location: String = "Solan, Himachal Pradesh"
-        
+
         // BackGround Color
 
         Box(
@@ -98,8 +99,11 @@ fun HomeScreen() {
                 contentScale = ContentScale.Crop,
             )
 
-            // Lazy Filter Row
-            // Lazy Coffee Card Column
+            // Category List
+            Spacer(Modifier.height(12.dp))
+            HomeScreenCategory()
+
+            // Coffee Card Column
         }
     }
 }
