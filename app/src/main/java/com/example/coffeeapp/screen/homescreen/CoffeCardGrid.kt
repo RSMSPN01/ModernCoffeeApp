@@ -1,18 +1,25 @@
 package com.example.coffeeapp.screen.homescreen
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.coffeeapp.R
 import com.example.coffeeapp.model.Product
 
-@Preview
+
 @Composable
-fun CoffeeCardGrid() {
+fun CoffeeCardGrid(
+    innerpadding: PaddingValues,
+    topContent: @Composable () -> Unit
+) {
     // with local data
     val products = listOf(
         Product(
@@ -74,9 +81,15 @@ fun CoffeeCardGrid() {
     )
     // Coffe Card Grid Ui
     LazyVerticalGrid(
+        modifier = Modifier.padding(innerpadding),
         columns = GridCells.Fixed(2),
         horizontalArrangement = Arrangement.spacedBy(8.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp)) {
+        item(
+            span = { GridItemSpan(maxLineSpan) }
+        ) {
+            topContent()
+        }
         items(products) { product ->
             CoffeeCardUI(product)
         }
