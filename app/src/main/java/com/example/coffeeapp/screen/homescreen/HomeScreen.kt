@@ -2,6 +2,7 @@ package com.example.coffeeapp.screen.homescreen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -11,6 +12,11 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowDown
@@ -23,13 +29,13 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.coffeeapp.R
+import com.example.coffeeapp.model.Product
 import com.example.coffeeapp.screen.ui_components.NavigationBarUI
 
 @Preview(showBackground = true, showSystemUi = true)
@@ -38,7 +44,7 @@ fun HomeScreen() {
     Scaffold(
         bottomBar = { NavigationBarUI() }
     ) { innerpadding ->
-        var location: String = "Solan, Himachal Pradesh"
+        val location = "Solan, Himachal Pradesh"
 
         // BackGround Color
 
@@ -63,16 +69,16 @@ fun HomeScreen() {
         ) {
             // Text Field For Location
 
-            Spacer(Modifier.height(25.dp))
+            Spacer(Modifier.height(15.dp))
             Text(
                 text = "Location",
                 fontSize = 12.sp,
                 fontWeight = FontWeight.Bold
             )
             Spacer(Modifier.height(6.dp))
-            Row() {
+            Row {
                 Text(
-                    text = "$location",
+                    text = location,
                     fontSize = 16.sp,
                     fontWeight = FontWeight.SemiBold
                 )
@@ -103,7 +109,10 @@ fun HomeScreen() {
             Spacer(Modifier.height(12.dp))
             HomeScreenCategory()
 
-            // Coffee Card Column
+            // Coffee card Grid Ui
+            Spacer(Modifier.height(12.dp))
+            CoffeeCardGrid()
+
         }
     }
 }
