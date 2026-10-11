@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import com.example.coffeeapp.screen.detailscreen.DetailScreenUi
 import com.example.coffeeapp.screen.homescreen.HomeScreen
 import com.example.coffeeapp.screen.homescreen.HomeScreenCategory
 import com.example.coffeeapp.screen.welcomescreen.WelcomeScreen
@@ -16,7 +17,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             CoffeeAppTheme {
 //                WelcomeScreen()
-                HomeScreen()
+//                HomeScreen()
+                DetailScreenUi()
             }
 //            HomeScreenCategory()
         }

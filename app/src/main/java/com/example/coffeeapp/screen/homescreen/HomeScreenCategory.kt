@@ -1,7 +1,5 @@
 package com.example.coffeeapp.screen.homescreen
 
-import android.widget.Toast
-import android.widget.Toast.LENGTH_SHORT
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.LazyRow
@@ -32,7 +30,7 @@ fun HomeScreenCategory() {
         "Flat White",
         "Mocha"
     )
-    var currentSelected by rememberSaveable {mutableStateOf(categories[0]) }
+    var currentSelected by rememberSaveable { mutableStateOf(categories[0]) }
     // UI
 
     LazyRow(
@@ -45,14 +43,9 @@ fun HomeScreenCategory() {
             // Category Ui
             // lambda function
             val onClick = {
-                Toast.makeText(
-                    context,
-                    "${category} Selected",
-                    LENGTH_SHORT
-                ).show()
                 currentSelected = category
             }
-            CategoryUI(category, onClick,currentSelected)
+            CategoryUI(category, onClick, currentSelected)
 
         }
     }

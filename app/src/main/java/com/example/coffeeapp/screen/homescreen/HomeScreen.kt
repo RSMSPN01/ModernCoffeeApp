@@ -39,7 +39,6 @@ fun HomeScreen() {
         val location = "Solan, Himachal Pradesh"
 
         // BackGround Color
-
         Box(
             modifier = Modifier
                 .fillMaxWidth()
