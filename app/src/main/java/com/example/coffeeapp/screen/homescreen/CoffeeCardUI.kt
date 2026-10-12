@@ -2,6 +2,7 @@ package com.example.coffeeapp.screen.homescreen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -11,7 +12,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
@@ -32,10 +32,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.coffeeapp.model.Product
+import com.example.coffeeapp.navigation.NavRoutes
 
 @Composable
-fun CoffeeCardUI(product: Product) {
+fun CoffeeCardUI(product: Product, navController: NavController) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -43,7 +45,7 @@ fun CoffeeCardUI(product: Product) {
             .background(
                 color = Color(0xFF466653),
                 shape = RoundedCornerShape(12.dp)
-            )
+            ).clickable{navController.navigate(NavRoutes.DetailScreen(product.id))}
     ) {
         Image(
             painter = painterResource(product.image),

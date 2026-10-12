@@ -27,7 +27,7 @@ import androidx.compose.ui.unit.sp
 import com.example.coffeeapp.screen.ui_components.AddToCartAlert
 
 @Composable
-fun DetailScreenBottomBar(price: Int) {
+fun DetailScreenBottomBar(price: Double) {
 
     BottomAppBar(
         containerColor = Color(0xFFF7F1E8),

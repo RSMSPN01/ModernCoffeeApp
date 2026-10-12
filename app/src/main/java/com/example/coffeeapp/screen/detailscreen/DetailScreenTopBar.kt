@@ -1,6 +1,5 @@
 package com.example.coffeeapp.screen.detailscreen
 
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.FavoriteBorder
@@ -18,12 +17,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 
 @OptIn(ExperimentalMaterial3Api::class)
-@Preview(showBackground = true, showSystemUi = true)
 @Composable
 
-fun DetailScreenTopBar() {
+fun DetailScreenTopBar(navController: NavHostController) {
 
     TopAppBar(
         title = {
@@ -37,7 +36,7 @@ fun DetailScreenTopBar() {
 
         navigationIcon = {
             IconButton(
-                onClick = { }
+                onClick = { navController.navigateUp()}
             ) {
                 Icon(
                     imageVector = Icons.Default.KeyboardArrowLeft,

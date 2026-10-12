@@ -21,23 +21,26 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.coffeeapp.R
+import com.example.coffeeapp.navigation.NavRoutes
 import com.example.coffeeapp.ui.theme.lightGreen
 
 
-@Preview(showBackground = true)
 @Composable
-fun WelcomeScreen() {
+fun WelcomeScreen(navController: NavController) {
     Box(
         modifier = Modifier
-            .fillMaxWidth()
+            .fillMaxSize()
     ) {
         Image(
-            painter = painterResource(R.drawable.coffeewelcomescreen),
+            painter = painterResource(
+                id = R.drawable.coffeewelcomescreen
+            ),
             contentDescription = "Welcome Screen Coffee Image",
+            modifier = Modifier.fillMaxSize(),
             contentScale = ContentScale.Crop
         )
         Column(
@@ -69,7 +72,9 @@ fun WelcomeScreen() {
             )
             Button(
                 modifier = Modifier.fillMaxWidth(),
-                onClick = {},
+                onClick = {
+                    navController.navigate(NavRoutes.HomeScreen)
+                },
                 colors = ButtonDefaults.buttonColors(
                     containerColor = lightGreen.copy(0.5f)
                 ),

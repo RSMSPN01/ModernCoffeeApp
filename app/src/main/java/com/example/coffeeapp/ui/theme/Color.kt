@@ -11,3 +11,8 @@ val PurpleGrey40 = Color(0xFF625b71)
 val Pink40 = Color(0xFF7D5260)
 
 val lightGreen = Color(0xFF00AF66)
+
+val coffeeGreen = Color(0xFF47745F)
+val coffeeGreenLight = Color(0xFF8DBBA4)
+val coffeeCream = Color(0xFFF7F1E8)
+val coffeeText = Color(0xFF252525)

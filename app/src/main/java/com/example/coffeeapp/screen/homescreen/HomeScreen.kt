@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowDown
@@ -27,12 +26,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import com.example.coffeeapp.R
 import com.example.coffeeapp.screen.ui_components.NavigationBarUI
 
-@Preview(showBackground = true, showSystemUi = true)
+
 @Composable
-fun HomeScreen() {
+fun HomeScreen(navController: NavHostController) {
     Scaffold(
         bottomBar = { NavigationBarUI() }
     ) { innerpadding ->
@@ -55,12 +56,9 @@ fun HomeScreen() {
 
             // Coffee card Grid Ui
 
-            CoffeeCardGrid(innerpadding) {
+            CoffeeCardGrid(innerpadding, navController = navController) {
                 // we want to make this scrollable so pass everything in here
-                Column(
-                    modifier = Modifier
-                        .padding(horizontal = 16.dp)
-                ) {
+                Column {
                     // Text Field For Location
 
                     Spacer(Modifier.height(15.dp))
@@ -85,7 +83,6 @@ fun HomeScreen() {
                     // Search Bar
                     Spacer(Modifier.height(35.dp))
                     SearchBar()
-
 
                     // Promo Image
                     Spacer(Modifier.height(25.dp))
