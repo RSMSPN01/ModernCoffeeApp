@@ -41,7 +41,7 @@ fun CoffeeCardUI(product: Product, navController: NavController) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .height(220.dp)
+            .height(230.dp)
             .background(
                 color = Color(0xFF466653),
                 shape = RoundedCornerShape(12.dp)
@@ -66,7 +66,7 @@ fun CoffeeCardUI(product: Product, navController: NavController) {
             shape = RoundedCornerShape(15.dp),
             modifier = Modifier
                 .padding(top = 12.dp, end = 12.dp)
-                .size(height = 20.dp, width = 30.dp)
+                .size(height = 30.dp, width = 30.dp)
                 .align(Alignment.TopEnd).
             alpha(0.8f)
 
@@ -74,21 +74,20 @@ fun CoffeeCardUI(product: Product, navController: NavController) {
             Icon(
                 imageVector = Icons.Default.FavoriteBorder,
                 contentDescription = "Add Button",
-                Modifier.size(15.dp)
+                Modifier.size(20.dp)
             )
         }
-
         Column(
             modifier = Modifier
                 .align(Alignment.BottomStart)
-                .padding(start = 5.dp, end = 5.dp, bottom = 6.dp)
+                .padding(start = 5.dp, end = 5.dp, bottom = 6.dp,top = 8.dp)
         ) {
+
             Text(
                 text = product.name,
                 fontWeight = FontWeight.SemiBold,
                 color = Color(0xFFF5F7F5)
             )
-            Spacer(Modifier.height(2.dp))
             Text(
                 text = product.description,
                 fontSize = 12.sp,
@@ -96,7 +95,6 @@ fun CoffeeCardUI(product: Product, navController: NavController) {
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis
             )
-            Spacer(Modifier.height(4.dp))
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceBetween,
@@ -121,7 +119,6 @@ fun CoffeeCardUI(product: Product, navController: NavController) {
                     )
                 }
             }
-
         }
     }
 }

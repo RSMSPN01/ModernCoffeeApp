@@ -7,8 +7,20 @@ import kotlinx.serialization.Serializable
 sealed class NavRoutes {
     @Serializable
     object WelcomeScreen : NavRoutes()
+
     @Serializable
     object HomeScreen : NavRoutes()
+
     @Serializable
-    data class DetailScreen(val productId : Int) : NavRoutes()
+    data class DetailScreen(val productId: Int) : NavRoutes()
+
+    @Serializable
+    object CartScreen : NavRoutes()
+
+    @Serializable
+    object FavouriteScreen : NavRoutes()
+
+    @Serializable
+
+    object ProfileScreen : NavRoutes()
 }

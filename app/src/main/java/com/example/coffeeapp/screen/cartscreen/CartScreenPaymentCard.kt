@@ -1,7 +1,6 @@
 package com.example.coffeeapp.screen.cartscreen
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -30,7 +29,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableDoubleStateOf
-import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -38,17 +36,18 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import kotlin.math.exp
 
-@Preview(showBackground = true)
+
 @Composable
-fun CartScreenPaymentCard() {
+fun CartScreenPaymentCard(
+    deliveryCharges: Double,
+    onPaymentModeChange: (String) -> Unit,
+    paymentMode: String
+) {
     var expanded by remember { mutableStateOf(false) }
-    var paymentMode by remember { mutableStateOf("Online Payment") }
     var totalPrice  by remember { mutableDoubleStateOf(169.0) }
     var paymentIcon by remember {
         mutableStateOf(Icons.Default.CreditCard)
@@ -102,7 +101,7 @@ fun CartScreenPaymentCard() {
                     )
 
                     Text(
-                        text = "₹$totalPrice",
+                        text = "₹${totalPrice + deliveryCharges}",
                         fontSize = 13.sp,
                         color = secondaryText
                     )
@@ -146,9 +145,8 @@ fun CartScreenPaymentCard() {
                             },
                             onClick = {
                                 expanded = false
-                                paymentMode = "Online Payment"
+                                onPaymentModeChange("Online Payment")
                                 paymentIcon = Icons.Default.CreditCard
-                                totalPrice = totalPrice
                             }
                         )
 
@@ -173,9 +171,8 @@ fun CartScreenPaymentCard() {
                             },
                             onClick = {
                                 expanded = false
-                                paymentMode = "Cash on Delivery"
+                                onPaymentModeChange("Cash on Delivery")
                                 paymentIcon = Icons.Default.Payments
-                                totalPrice = totalPrice + 40.0
                             }
                         )
                     }

@@ -1,6 +1,5 @@
 package com.example.coffeeapp.screen.cartscreen
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -8,30 +7,34 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.blur
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.coffeeapp.model.Product
+import androidx.navigation.NavHostController
 import com.example.coffeeapp.model.coffeeProducts
 import com.example.coffeeapp.screen.ui_components.NavigationBarUI
 
-@Preview
 @Composable
-fun CartScreen() {
+fun CartScreen(navController: NavHostController) {
     Scaffold(
         topBar = { CartScreenTopBar() },
-        bottomBar = { NavigationBarUI() }
+        bottomBar = { NavigationBarUI(navController, "Cart") }
     ) { innerpadding ->
+        var paymentMode by remember {
+            mutableStateOf("Online Payment")
+        }
+        val deliveryCharges =
+            if (paymentMode == "Cash on Delivery") 40.0 else 0.0
         Column(
             modifier = Modifier
                 .padding(innerpadding)
@@ -72,14 +75,16 @@ fun CartScreen() {
                     fontSize = 13.sp
                 )
                 Text(
-                    text = "₹ 123",
+                    text = "₹ 169",
                     fontWeight = FontWeight.SemiBold,
                     fontSize = 13.sp
                 )
             }
             Spacer(Modifier.height(4.dp))
-            Row(modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
                 Text(
                     text = "Delivery Fee",
                     fontWeight = FontWeight.SemiBold,
@@ -87,13 +92,15 @@ fun CartScreen() {
 
                 )
                 Text(
-                    text = "₹ 124",
+                    text = "₹ $deliveryCharges",
                     fontWeight = FontWeight.SemiBold,
                     fontSize = 13.sp
                 )
             }
             Spacer(Modifier.height(24.dp))
-            CartScreenPaymentCard()
+            CartScreenPaymentCard(deliveryCharges, onPaymentModeChange = { newMode ->
+                paymentMode = newMode
+            }, paymentMode)
             Spacer(Modifier.height(12.dp))
         }
     }

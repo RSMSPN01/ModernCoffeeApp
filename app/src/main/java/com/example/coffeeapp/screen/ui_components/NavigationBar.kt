@@ -1,10 +1,8 @@
 package com.example.coffeeapp.screen.ui_components
 
-import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.NavigationBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.material3.Icon
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
@@ -16,16 +14,19 @@ import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Text
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavGraph.Companion.findStartDestination
+import androidx.navigation.NavHostController
+import com.example.coffeeapp.navigation.NavRoutes
 
-@Preview(showBackground = true)
+
 @Composable
-fun NavigationBarUI() {
+fun NavigationBarUI(navController: NavHostController, page: String) {
 
     val items = listOf(
-        NavItems("Home", Icons.Default.Home),
-        NavItems("Cart", Icons.Default.ShoppingCart),
-        NavItems("Liked", Icons.Default.Favorite),
-        NavItems("Profile", Icons.Default.Person),
+        NavItems("Home", Icons.Default.Home, NavRoutes.HomeScreen),
+        NavItems("Cart", Icons.Default.ShoppingCart, NavRoutes.CartScreen),
+        NavItems("Liked", Icons.Default.Favorite, NavRoutes.FavouriteScreen),
+        NavItems("Profile", Icons.Default.Person, NavRoutes.ProfileScreen),
     )
 
     NavigationBar(
@@ -36,8 +37,17 @@ fun NavigationBarUI() {
         items.forEach { item ->
 
             NavigationBarItem(
-                selected = true,
-                onClick = {},
+                selected = page == item.title,
+                onClick = {
+                    navController.navigate(item.routes){
+                            popUpTo(NavRoutes.HomeScreen) {
+                                saveState = true
+                            }
+                            launchSingleTop = true
+                            restoreState = true
+
+                    }
+                },
                 icon = {
                     Icon(
                         imageVector = item.icons,
@@ -65,5 +75,6 @@ fun NavigationBarUI() {
 
 data class NavItems(
     var title: String,
-    var icons: ImageVector
+    var icons: ImageVector,
+    var routes: NavRoutes
 )

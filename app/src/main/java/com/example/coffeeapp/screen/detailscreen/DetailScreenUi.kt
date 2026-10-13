@@ -64,7 +64,7 @@ fun DetailScreenUi(product: Product, navController: NavHostController) {
                 contentDescription = "Coffee Image",
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(200.dp)
+                    .height(400.dp)
                     .clip(RoundedCornerShape(12.dp)),
                 contentScale = ContentScale.Crop
             )

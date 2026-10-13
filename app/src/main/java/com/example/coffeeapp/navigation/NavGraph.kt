@@ -7,6 +7,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
 import com.example.coffeeapp.model.coffeeProducts
+import com.example.coffeeapp.screen.cartscreen.CartScreen
 import com.example.coffeeapp.screen.detailscreen.DetailScreenUi
 import com.example.coffeeapp.screen.homescreen.HomeScreen
 import com.example.coffeeapp.screen.welcomescreen.WelcomeScreen
@@ -40,6 +41,15 @@ fun NavGraph() {
             } else {
                 Text("Coffee not found")
             }
+        }
+        composable < NavRoutes.CartScreen>{
+            CartScreen(navController)
+        }
+        composable < NavRoutes.FavouriteScreen>{
+
+        }
+        composable < NavRoutes.ProfileScreen>{
+
         }
         }
     }
