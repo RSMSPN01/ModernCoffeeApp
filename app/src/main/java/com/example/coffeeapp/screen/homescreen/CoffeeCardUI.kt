@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -45,7 +44,8 @@ fun CoffeeCardUI(product: Product, navController: NavController) {
             .background(
                 color = Color(0xFF466653),
                 shape = RoundedCornerShape(12.dp)
-            ).clickable{navController.navigate(NavRoutes.DetailScreen(product.id))}
+            )
+            .clickable { navController.navigate(NavRoutes.DetailScreen(product.id)) }
     ) {
         Image(
             painter = painterResource(product.image),
@@ -67,8 +67,8 @@ fun CoffeeCardUI(product: Product, navController: NavController) {
             modifier = Modifier
                 .padding(top = 12.dp, end = 12.dp)
                 .size(height = 30.dp, width = 30.dp)
-                .align(Alignment.TopEnd).
-            alpha(0.8f)
+                .align(Alignment.TopEnd)
+                .alpha(0.8f)
 
         ) {
             Icon(
@@ -80,7 +80,7 @@ fun CoffeeCardUI(product: Product, navController: NavController) {
         Column(
             modifier = Modifier
                 .align(Alignment.BottomStart)
-                .padding(start = 5.dp, end = 5.dp, bottom = 6.dp,top = 8.dp)
+                .padding(start = 5.dp, end = 5.dp, bottom = 6.dp, top = 8.dp)
         ) {
 
             Text(

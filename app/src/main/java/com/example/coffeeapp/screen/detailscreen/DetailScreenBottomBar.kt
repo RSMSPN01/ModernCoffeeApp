@@ -63,7 +63,7 @@ fun DetailScreenBottomBar(price: Double) {
             Spacer(Modifier.width(6.dp))
 
             Button(
-                onClick = {showMessage = true},
+                onClick = { showMessage = true },
                 modifier = Modifier
                     .width(200.dp)
                     .height(47.dp),
@@ -84,7 +84,7 @@ fun DetailScreenBottomBar(price: Double) {
             show = showMessage,
             title = "Added to Cart",
             text = "Item is added to your cart",
-            onDismiss = {showMessage = false}
+            onDismiss = { showMessage = false }
         )
     }
 }

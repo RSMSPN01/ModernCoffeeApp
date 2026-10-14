@@ -23,18 +23,21 @@ fun CoffeeCardGrid(
 
     // Coffe Card Grid Ui
     LazyVerticalGrid(
-        modifier = Modifier.padding(innerpadding).padding(horizontal = 16.dp),
+        modifier = Modifier
+            .padding(innerpadding)
+            .padding(horizontal = 16.dp),
         columns = GridCells.Fixed(2),
         horizontalArrangement = Arrangement.spacedBy(8.dp),
-        verticalArrangement = Arrangement.spacedBy(12.dp)) {
+        verticalArrangement = Arrangement.spacedBy(12.dp)
+    ) {
         item(
             span = { GridItemSpan(maxLineSpan) }
         ) {
             topContent()
         }
         items(coffeeProducts) { product ->
-            CoffeeCardUI(product,navController)
+            CoffeeCardUI(product, navController)
         }
     }
-    
+
 }

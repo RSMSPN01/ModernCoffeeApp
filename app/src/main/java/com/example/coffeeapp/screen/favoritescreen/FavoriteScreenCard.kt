@@ -71,7 +71,7 @@ fun FavoriteScreenCard(image: Int, coffeeType: String, description: String, onRe
                     fontSize = 12.sp,
                     color = Color(0xFF6B776F),
                     maxLines = 1,
-                   overflow = TextOverflow.Ellipsis
+                    overflow = TextOverflow.Ellipsis
                 )
             }
 
@@ -81,7 +81,7 @@ fun FavoriteScreenCard(image: Int, coffeeType: String, description: String, onRe
                 modifier = Modifier.padding(start = 16.dp)
             ) {
                 IconButton(
-                    onClick = { onRemove()},
+                    onClick = { onRemove() },
                     modifier = Modifier.size(32.dp)
                 ) {
                     Icon(

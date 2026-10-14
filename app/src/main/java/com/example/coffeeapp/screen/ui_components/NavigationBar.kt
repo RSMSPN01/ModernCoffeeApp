@@ -1,20 +1,19 @@
 package com.example.coffeeapp.screen.ui_components
 
-import androidx.compose.material3.NavigationBar
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.material3.Icon
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.ShoppingCart
+import androidx.compose.material3.Icon
+import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import com.example.coffeeapp.navigation.NavRoutes
 
@@ -39,12 +38,12 @@ fun NavigationBarUI(navController: NavHostController, page: String) {
             NavigationBarItem(
                 selected = page == item.title,
                 onClick = {
-                    navController.navigate(item.routes){
-                            popUpTo(NavRoutes.HomeScreen) {
-                                saveState = true
-                            }
-                            launchSingleTop = true
-                            restoreState = true
+                    navController.navigate(item.routes) {
+                        popUpTo(NavRoutes.HomeScreen) {
+                            saveState = true
+                        }
+                        launchSingleTop = true
+                        restoreState = true
 
                     }
                 },

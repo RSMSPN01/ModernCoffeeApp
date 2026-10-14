@@ -27,7 +27,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
@@ -44,7 +43,7 @@ import com.example.coffeeapp.ui.theme.textColor
 fun ProfileScreen(navController: NavHostController) {
     Scaffold(
         topBar = { ProfileScreenTopBar() },
-        bottomBar = {NavigationBarUI(navController,"Profile")}
+        bottomBar = { NavigationBarUI(navController, "Profile") }
     ) { innerpadding ->
         Column(
             modifier = Modifier
@@ -130,7 +129,7 @@ fun ProfileScreen(navController: NavHostController) {
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .clickable {navController.navigate(NavRoutes.CartScreen)}
+                        .clickable { navController.navigate(NavRoutes.CartScreen) }
                         .padding(
                             horizontal = 18.dp,
                             vertical = 14.dp
@@ -156,7 +155,7 @@ fun ProfileScreen(navController: NavHostController) {
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .clickable {navController.navigate(NavRoutes.FavoriteScreen)}
+                        .clickable { navController.navigate(NavRoutes.FavoriteScreen) }
                         .padding(
                             horizontal = 18.dp,
                             vertical = 14.dp

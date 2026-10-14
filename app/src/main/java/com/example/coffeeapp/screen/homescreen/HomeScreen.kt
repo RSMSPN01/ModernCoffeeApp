@@ -33,7 +33,7 @@ import com.example.coffeeapp.screen.ui_components.NavigationBarUI
 @Composable
 fun HomeScreen(navController: NavHostController) {
     Scaffold(
-        bottomBar = { NavigationBarUI(navController,"Home") }
+        bottomBar = { NavigationBarUI(navController, "Home") }
     ) { innerpadding ->
         val location = "Solan, Himachal Pradesh"
 
@@ -52,54 +52,54 @@ fun HomeScreen(navController: NavHostController) {
                 )
         )
 
-            // Coffee card Grid Ui
+        // Coffee card Grid Ui
 
-            CoffeeCardGrid(innerpadding, navController = navController) {
-                // we want to make this scrollable so pass everything in here
-                Column {
-                    // Text Field For Location
+        CoffeeCardGrid(innerpadding, navController = navController) {
+            // we want to make this scrollable so pass everything in here
+            Column {
+                // Text Field For Location
 
-                    Spacer(Modifier.height(15.dp))
+                Spacer(Modifier.height(15.dp))
+                Text(
+                    text = "Location",
+                    fontSize = 12.sp,
+                    fontWeight = FontWeight.Bold
+                )
+                Spacer(Modifier.height(6.dp))
+                Row {
                     Text(
-                        text = "Location",
-                        fontSize = 12.sp,
-                        fontWeight = FontWeight.Bold
+                        text = location,
+                        fontSize = 16.sp,
+                        fontWeight = FontWeight.SemiBold
                     )
-                    Spacer(Modifier.height(6.dp))
-                    Row {
-                        Text(
-                            text = location,
-                            fontSize = 16.sp,
-                            fontWeight = FontWeight.SemiBold
-                        )
-                        Icon(
-                            imageVector = Icons.Default.KeyboardArrowDown,
-                            contentDescription = "Change Location"
-                        )
-                    }
-
-                    // Search Bar
-                    Spacer(Modifier.height(35.dp))
-                    SearchBar()
-
-                    // Promo Image
-                    Spacer(Modifier.height(25.dp))
-                    Image(
-                        painter = painterResource(R.drawable.promo_image),
-                        contentDescription = "Promotional Image",
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(160.dp)
-                            .clip(RoundedCornerShape(15.dp)),
-                        contentScale = ContentScale.Crop,
+                    Icon(
+                        imageVector = Icons.Default.KeyboardArrowDown,
+                        contentDescription = "Change Location"
                     )
+                }
 
-                    // Category List
-                    Spacer(Modifier.height(12.dp))
-                    HomeScreenCategory()
+                // Search Bar
+                Spacer(Modifier.height(35.dp))
+                SearchBar()
 
-                    Spacer(Modifier.height(12.dp))
-                    // Card UI Spacer
+                // Promo Image
+                Spacer(Modifier.height(25.dp))
+                Image(
+                    painter = painterResource(R.drawable.promo_image),
+                    contentDescription = "Promotional Image",
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(160.dp)
+                        .clip(RoundedCornerShape(15.dp)),
+                    contentScale = ContentScale.Crop,
+                )
+
+                // Category List
+                Spacer(Modifier.height(12.dp))
+                HomeScreenCategory()
+
+                Spacer(Modifier.height(12.dp))
+                // Card UI Spacer
             }
 
         }

@@ -48,7 +48,7 @@ fun CartScreenPaymentCard(
     paymentMode: String
 ) {
     var expanded by remember { mutableStateOf(false) }
-    var totalPrice  by remember { mutableDoubleStateOf(169.0) }
+    var totalPrice by remember { mutableDoubleStateOf(169.0) }
     var paymentIcon by remember {
         mutableStateOf(Icons.Default.CreditCard)
     }
