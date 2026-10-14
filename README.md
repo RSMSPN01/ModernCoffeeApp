@@ -75,7 +75,7 @@ Detailed Coffee Screen : <img width="1080" height="2460" alt="DetailCoffeeCardSc
 
 The project is organized around Android's standard application structure.
 
-
+```
 CoffeeApp/
 ├── app/
 │   ├── src/
@@ -89,6 +89,7 @@ CoffeeApp/
 ├── gradle/
 ├── build.gradle.kts
 └── settings.gradle.kts
+```
 
 *Note: The structure above is representative of a standard Android project; the exact package and source-file organization may differ.*
 
