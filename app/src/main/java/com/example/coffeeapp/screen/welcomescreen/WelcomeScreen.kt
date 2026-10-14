@@ -37,7 +37,7 @@ fun WelcomeScreen(navController: NavController) {
     ) {
         Image(
             painter = painterResource(
-                id = R.drawable.coffeewelcomescreen
+                id = R.drawable.welcomescreen
             ),
             contentDescription = "Welcome Screen Coffee Image",
             modifier = Modifier.fillMaxSize(),

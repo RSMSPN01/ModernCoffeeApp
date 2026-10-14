@@ -21,7 +21,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-import com.example.coffeeapp.model.coffeeProducts
+import com.example.coffeeapp.model.coffeeProductsCompressed
 import com.example.coffeeapp.screen.ui_components.NavigationBarUI
 
 @Composable
@@ -52,7 +52,7 @@ fun CartScreen(navController: NavHostController) {
                 verticalArrangement = Arrangement.spacedBy(12.dp),
                 modifier = Modifier.weight(1f)
             ) {
-                items(coffeeProducts) { product ->
+                items(coffeeProductsCompressed) { product ->
                     CartScreenCard(product.image, product.name, product.description)
                 }
             }

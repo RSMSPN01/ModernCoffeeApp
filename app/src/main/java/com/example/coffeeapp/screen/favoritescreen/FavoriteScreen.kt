@@ -2,6 +2,8 @@ package com.example.coffeeapp.screen.favoritescreen
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -14,7 +16,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.example.coffeeapp.model.coffeeProducts
+import com.example.coffeeapp.model.coffeeProductsCompressed
 import com.example.coffeeapp.screen.ui_components.NavigationBarUI
 
 
@@ -24,21 +26,22 @@ fun FavoriteScreen(navController: NavHostController) {
         topBar = { FavoriteScreenTopBar() },
         bottomBar = { NavigationBarUI(navController, "Liked") }
     ) { innerpadding ->
-        var coffeeProducts by remember { mutableStateOf(coffeeProducts) }
+        var coffeeProductsCompressed by remember { mutableStateOf(coffeeProductsCompressed) }
         Column(
             modifier = Modifier
                 .padding(innerpadding)
                 .padding(horizontal = 16.dp)
         ) {
+            Spacer(Modifier.height(16.dp))
             LazyColumn(
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
-                items(coffeeProducts) { product ->
+                items(coffeeProductsCompressed) { product ->
                     FavoriteScreenCard(
                         product.image,
                         product.name,
                         product.description,
-                        { coffeeProducts = coffeeProducts - product })
+                        { coffeeProductsCompressed = coffeeProductsCompressed - product })
                 }
 
             }

@@ -5,10 +5,6 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import com.example.coffeeapp.navigation.NavGraph
-import com.example.coffeeapp.screen.detailscreen.DetailScreenUi
-import com.example.coffeeapp.screen.homescreen.HomeScreen
-import com.example.coffeeapp.screen.homescreen.HomeScreenCategory
-import com.example.coffeeapp.screen.welcomescreen.WelcomeScreen
 import com.example.coffeeapp.ui.theme.CoffeeAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -17,13 +13,14 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             CoffeeAppTheme {
-//                WelcomeScreen()
-//                HomeScreen()
-//                DetailScreenUi()
+//              WelcomeScreen()
+//              HomeScreen()
+//              DetailScreenUi()
+//              HomeScreenCategory()
                 NavGraph()
             }
 
-//            HomeScreenCategory()
+
         }
     }
 }

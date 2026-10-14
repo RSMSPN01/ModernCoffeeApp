@@ -40,6 +40,7 @@ fun NavigationBarUI(navController: NavHostController, page: String) {
                 onClick = {
                     navController.navigate(item.routes) {
                         popUpTo(NavRoutes.HomeScreen) {
+                            // It will not save the previous state of profile screen or else it is causing a loop
                             saveState = true
                         }
                         launchSingleTop = true
@@ -51,13 +52,11 @@ fun NavigationBarUI(navController: NavHostController, page: String) {
                     Icon(
                         imageVector = item.icons,
                         contentDescription = item.title,
-                        tint = Color(0xFF4F4A45)
                     )
                 },
                 label = {
                     Text(
                         text = item.title,
-                        color = Color(0xFF6B625B)
                     )
                 },
                 colors = NavigationBarItemDefaults.colors(

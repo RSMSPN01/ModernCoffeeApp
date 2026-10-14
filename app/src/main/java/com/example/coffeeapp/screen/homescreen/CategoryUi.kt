@@ -18,14 +18,14 @@ import androidx.compose.ui.unit.dp
 fun CategoryUI(category1: String, onClick: () -> Unit, currentSelected: String) {
     val isSelected = category1 == currentSelected
     val boxColor = if (isSelected) {
-        Color(0xFF4F8768)
+       Color(0xFF5F9F7D).copy(0.8f)
     } else {
-        Color(0xFF5F9F7D).copy(0.8f)
+          Color(0xFFFFFFFF)
     }
     val textColor = if (isSelected) {
-        Color(0xFFFFFFFF)
-    } else {
         Color(0xFFF5F7F5)
+    } else {
+        Color(0xFF4F8768)
     }
     Box(
         modifier = Modifier
