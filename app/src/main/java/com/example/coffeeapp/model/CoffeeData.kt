@@ -3,7 +3,7 @@ package com.example.coffeeapp.model
 import com.example.coffeeapp.R
 
 // with local data
-val coffeeProducts = listOf(
+var coffeeProducts = listOf(
     Product(
         id = 1,
         name = "Espresso",

@@ -18,7 +18,7 @@ sealed class NavRoutes {
     object CartScreen : NavRoutes()
 
     @Serializable
-    object FavouriteScreen : NavRoutes()
+    object FavoriteScreen : NavRoutes()
 
     @Serializable
 

@@ -25,7 +25,7 @@ fun NavigationBarUI(navController: NavHostController, page: String) {
     val items = listOf(
         NavItems("Home", Icons.Default.Home, NavRoutes.HomeScreen),
         NavItems("Cart", Icons.Default.ShoppingCart, NavRoutes.CartScreen),
-        NavItems("Liked", Icons.Default.Favorite, NavRoutes.FavouriteScreen),
+        NavItems("Liked", Icons.Default.Favorite, NavRoutes.FavoriteScreen),
         NavItems("Profile", Icons.Default.Person, NavRoutes.ProfileScreen),
     )
 
