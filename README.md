@@ -42,7 +42,7 @@ I reduced the image asset sizes to make the app lighter to render and improve th
 This taught me that performance is not just about writing efficient Kotlin code; asset sizes and UI rendering also matter.
 
 ## 🖼️ Screenshots
-```
+
 Screenshots of the application will be added here as development progresses.
 Welcome Screen : <img width="1080" height="2460" alt="WelcomeScreen" src="https://github.com/user-attachments/assets/3ea93b98-feb5-4531-8628-d5047c128a77" />
 Home Screen : <img width="1080" height="2460" alt="HomeScreen" src="https://github.com/user-attachments/assets/6a35ed81-92f8-4e54-900f-6d7ac27ee8a3" />
@@ -50,7 +50,7 @@ Cart Section : <img width="1080" height="2460" alt="CartScreenWithPayment" src="
 Favorite Screen : <img width="1080" height="2460" alt="FavoritesScreen" src="https://github.com/user-attachments/assets/c72dc99a-6dcf-4b6d-ba69-0762b91b429f" />
 Profile Section : <img width="1080" height="2460" alt="ProfileScreen" src="https://github.com/user-attachments/assets/ac7d4851-a8dd-48d5-ae92-3c250c5dc9bc" />
 Detailed Coffee Screen : <img width="1080" height="2460" alt="DetailCoffeeCardScreen" src="https://github.com/user-attachments/assets/a06a2965-1023-4c1b-8bab-9709984ae55d" />
-```
+
 
 ## 🚀 Getting Started
 
